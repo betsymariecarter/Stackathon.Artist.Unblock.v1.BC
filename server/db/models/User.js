@@ -13,7 +13,23 @@ const User = db.define('user', {
   },
   password: {
     type: Sequelize.STRING,
-  }
+  },
+  email: {
+    type: Sequelize.STRING,
+    validate: {
+      isEmail: true
+    }
+  },
+  pronouns: {
+    type: Sequelize.STRING, 
+  },
+  about: {
+    type: Sequelize.TEXT
+  },
+  avatar: {
+    type: Sequelize.STRING,
+    defaultValue: 'emptyavatar.png'
+  },
 })
 
 module.exports = User
