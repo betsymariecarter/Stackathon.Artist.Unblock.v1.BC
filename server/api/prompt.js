@@ -29,9 +29,9 @@ router.get(":/promptId", async (req, res, next) => {
         model: Artwork,
         as: "artworks",
       },
-      attributes: [`title`, `imageUrl`, `description`, `medium`],
+      attributes: [`shortPrompt`, `category`, `expandedPrompt`],
     });
-    res.json(artById);
+    res.json(promptById);
   } catch (err) {
     next(err);
   }
