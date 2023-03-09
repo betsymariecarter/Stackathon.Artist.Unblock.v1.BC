@@ -19,44 +19,6 @@ async function seed() {
   const betsy = users[0]
   const aimi = users[1];
 
-  const gallery = await Promise.all([
-    Artwork.create({
-      title: 'DPS',
-      imageUrl:"/art1.png",
-      description: "A piece of Artwork.",
-      medium: "Digital",
-      userId: betsy.id
-    }),
-    Artwork.create({
-      title: 'Brides',
-      imageUrl:"/art2.png",
-      description: "Inspired by a photoshoot of Shiina Ringo.",
-      medium: "Digital",
-      userId: aimi.id
-    }),
-    Artwork.create({
-      title: 'Peek-A-Boo',
-      imageUrl:"/art3.png",
-      description: "Inspired by 'Peek-A-Boo' by Red Velvet.",
-      medium: "Digital",
-      userId: betsy.id
-    }),
-    Artwork.create({
-      title: 'Scientist',
-      imageUrl:"/art4.png",
-      description: "Inspired by 'Scientist' by Twice.",
-      medium: "Digital",
-      userId: betsy.id
-    }),
-    Artwork.create({
-      title: 'Halloween Special',
-      imageUrl:"/art5.png",
-      description: "Festive art featuring Io's character, Himeo.",
-      medium: "Digital",
-      userId: betsy.id
-    }),
-  ])
-
   const prompts = await Promise.all([
     Prompt.create({
       shortPrompt: 'Draw your character as a Vampire.',
@@ -66,12 +28,59 @@ async function seed() {
     Prompt.create({
       shortPrompt: 'Make a drawing based on a song.',
       category:"creative",
-      expandedPrompt: "Put on a song you love and draw a piece based on it.",
+      expandedPrompt: "Put on a song you love and draw a piece based on it. BONUS: include the title of the song in your description!",
     }),
     Prompt.create({
       shortPrompt: 'Create a piece utilizing perspective.',
       category:"practice",
       expandedPrompt: "Test your skills by putting a figure in a space, drawing a background, use foreshortening, or utilize a unique angle.",
+    }),
+  ])
+
+  const vampire = prompts[0];
+  const song = prompts[1];
+  const perspective = prompts[2];
+
+  const gallery = await Promise.all([
+    Artwork.create({
+      title: 'DPS',
+      imageUrl:"/art1.png",
+      description: "A piece of Artwork.",
+      medium: "Digital",
+      userId: betsy.id,
+      promptId: perspective.id,
+    }),
+    Artwork.create({
+      title: 'Brides',
+      imageUrl:"/art2.png",
+      description: "Inspired by a photoshoot of Shiina Ringo.",
+      medium: "Digital",
+      userId: aimi.id,
+      promptId: perspective.id,
+    }),
+    Artwork.create({
+      title: 'Peek-A-Boo',
+      imageUrl:"/art3.png",
+      description: "Inspired by 'Peek-A-Boo' by Red Velvet.",
+      medium: "Digital",
+      userId: betsy.id,
+      promptId: song.id,
+    }),
+    Artwork.create({
+      title: 'Scientist',
+      imageUrl:"/art4.png",
+      description: "Inspired by 'Scientist' by Twice.",
+      medium: "Digital",
+      userId: betsy.id,
+      promptId: song.id,
+    }),
+    Artwork.create({
+      title: 'Halloween Special',
+      imageUrl:"/art5.png",
+      description: "Festive art featuring Io's character, Himeo.",
+      medium: "Digital",
+      userId: betsy.id,
+      promptId: vampire.id,
     }),
   ])
 
