@@ -6,6 +6,7 @@ export const fetchSingleArtworkAsync = createAsyncThunk(
   async (id) => {
     try {
       const { data } = await axios.get(`/api/gallery/${id}`);
+      console.log("data:", data)
       return data;
     } catch (err) {
       console.log(err);
@@ -31,7 +32,7 @@ const initialState = {
 };
 
 export const singleArtworkSlice = createSlice({
-  name: "singleArtwork",
+  name: "artwork",
   initialState,
   reducers: {},
   extraReducers: (builder) => {

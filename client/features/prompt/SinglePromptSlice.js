@@ -1,0 +1,52 @@
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import axios from "axios";
+
+export const fetchSinglePromptAsync = createAsyncThunk(
+  "singlePrompt",
+  async (id) => {
+    try {
+      const { data } = await axios.get(`/api/prompts/${id}`);
+      console.log("data:", data)
+      return data;
+    } catch (err) {
+      console.log(err);
+    }
+  }
+);
+
+// export const editPromptAsync = createAsyncThunk(
+//   "campuses/edit",
+//   async ({ id, title, imageUrl, description, medium }) => {
+//     const { data } = await axios.put(`/api/prompts/${id}`, {
+//       shortPrompt,
+//       imageUrl,
+//       description,
+//       medium,
+//     });
+//     return data;
+//   }
+// );
+
+const initialState = {
+  Prompt: {},
+};
+
+export const singlePromptSlice = createSlice({
+  name: "Prompt",
+  initialState,
+  reducers: {},
+  extraReducers: (builder) => {
+    builder.addCase(fetchSinglePromptAsync.fulfilled, (state, action) => {
+      state.Prompt = action.payload;
+    });
+    // builder.addCase(editPromptAsync.fulfilled, (state, action) => {
+    //   state = action.payload;
+    // });
+  },
+});
+
+export const selectSinglePrompt = (state) => {
+  return state.Prompt;
+};
+
+export default singlePromptSlice.reducer;

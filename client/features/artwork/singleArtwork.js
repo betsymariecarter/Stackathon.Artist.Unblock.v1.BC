@@ -5,22 +5,22 @@ import { fetchSingleArtworkAsync, selectSingleArtwork } from "./SingleArtworkSli
 
 const SingleArtwork = () => {
   const dispatch = useDispatch();
-  const { artworkId } = useParams();
+  const artworkId = useParams();
 
   const singleArtwork = useSelector(selectSingleArtwork);
 
-  useEffect(() => {
-    dispatch(fetchSingleArtworkAsync(artworkId));
-  }, [dispatch]);
+  console.log(artworkId)
 
-  console.log(singleArtwork)
+  useEffect(() => {
+    dispatch(fetchSingleArtworkAsync(artworkId.id));
+  }, [dispatch]);
 
   const { id, title, imageUrl, medium, description, 
     // userId, promptId 
-  } =
-    singleArtwork.artwork;
+  } = singleArtwork.artwork;
 
-    console.log(artworkId)
+    console.log(id)
+
   return (
     <section id="singleArt">
       <div key={id}>
