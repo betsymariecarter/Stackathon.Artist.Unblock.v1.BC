@@ -22,7 +22,7 @@ async function seed() {
   const gallery = await Promise.all([
     Artwork.create({
       title: 'DPS',
-      imageUrl:"/art/art1.png",
+      imageUrl:"/art1.png",
       description: "A piece of Artwork.",
       medium: "Digital",
       userId: betsy.id
