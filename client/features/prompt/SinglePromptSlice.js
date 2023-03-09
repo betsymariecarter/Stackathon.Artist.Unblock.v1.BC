@@ -28,16 +28,16 @@ export const fetchSinglePromptAsync = createAsyncThunk(
 // );
 
 const initialState = {
-  Prompt: {},
+  prompt: {},
 };
 
 export const singlePromptSlice = createSlice({
-  name: "Prompt",
+  name: "prompt",
   initialState,
   reducers: {},
   extraReducers: (builder) => {
     builder.addCase(fetchSinglePromptAsync.fulfilled, (state, action) => {
-      state.Prompt = action.payload;
+      state.prompt = action.payload;
     });
     // builder.addCase(editPromptAsync.fulfilled, (state, action) => {
     //   state = action.payload;
@@ -46,7 +46,7 @@ export const singlePromptSlice = createSlice({
 });
 
 export const selectSinglePrompt = (state) => {
-  return state.Prompt;
+  return state.prompt;
 };
 
 export default singlePromptSlice.reducer;

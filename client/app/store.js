@@ -4,6 +4,7 @@ import gallerySlice from "../features/artwork/AllArtworkSlice";
 import singleArtworkSlice from "../features/artwork/SingleArtworkSlice";
 import authReducer from "../features/auth/authSlice";
 import AllPromptsSlice from "../features/prompt/AllPromptsSlice";
+import singlePromptSlice from "../features/prompt/SinglePromptSlice";
 
 const store = configureStore({
   reducer: {
@@ -11,6 +12,7 @@ const store = configureStore({
     gallery: gallerySlice,
     artwork: singleArtworkSlice,
     prompts: AllPromptsSlice,
+    singlePrompt: singlePromptSlice,
   },
   middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(logger),
 });

@@ -7,6 +7,7 @@ import { me } from "./store";
 import Gallery from "../features/artwork/allArtworks";
 import SingleArtwork from "../features/artwork/singleArtwork";
 import Prompts from "../features/prompt/allPrompts";
+import SinglePrompt from "../features/prompt/singlePrompt";
 
 /**
  * COMPONENT
@@ -26,12 +27,12 @@ const AppRoutes = () => {
         <Route path="/gallery" element={<Gallery />} />
         <Route path="/gallery/:id" element={<SingleArtwork />} />
         <Route path="/prompts" element={<Prompts/>}/>
+        <Route path="/prompts/:id" element={<SinglePrompt/>}/>
       </Routes>
       {isLoggedIn ? (
         <Routes>
           <Route path="/*" element={<Home />} />
           <Route to="/home" element={<Home />} />
-          {/* <Route path="/gallery/:id" element={<SingleArtwork />} /> */}
         </Routes>
       ) : (
         <Routes>

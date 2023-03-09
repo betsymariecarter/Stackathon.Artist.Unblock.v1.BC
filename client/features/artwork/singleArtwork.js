@@ -9,7 +9,7 @@ const SingleArtwork = () => {
 
   const singleArtwork = useSelector(selectSingleArtwork);
 
-  console.log(artworkId)
+  console.log(singleArtwork)
 
   useEffect(() => {
     dispatch(fetchSingleArtworkAsync(artworkId.id));

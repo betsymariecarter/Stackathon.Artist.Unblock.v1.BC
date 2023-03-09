@@ -29,7 +29,7 @@ router.get("/:id", async (req, res, next) => {
         model: Artwork,
         as: "artworks",
       },
-      attributes: [`shortPrompt`, `category`, `expandedPrompt`],
+      attributes: [`id`, `shortPrompt`, `category`, `expandedPrompt`],
     });
     res.json(promptById);
   } catch (err) {
