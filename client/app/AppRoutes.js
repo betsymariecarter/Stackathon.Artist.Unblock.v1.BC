@@ -1,9 +1,12 @@
-import React, { useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { Route, Routes } from 'react-router-dom';
-import AuthForm from '../features/auth/AuthForm';
-import Home from '../features/home/Home';
-import { me } from './store';
+import React, { useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { Route, Routes } from "react-router-dom";
+import AuthForm from "../features/auth/AuthForm";
+import Home from "../features/home/Home";
+import { me } from "./store";
+import Gallery from "../features/artwork/allArtworks";
+import SingleArtwork from "../features/artwork/singleArtwork";
+import Prompts from "../features/prompt/allPrompts";
 
 /**
  * COMPONENT
@@ -19,11 +22,16 @@ const AppRoutes = () => {
 
   return (
     <div>
+      <Routes>
+        <Route path="/gallery" element={<Gallery />} />
+        <Route path="/gallery/:id" element={<SingleArtwork />} />
+        <Route path="/prompts" element={<Prompts/>}/>
+      </Routes>
       {isLoggedIn ? (
         <Routes>
           <Route path="/*" element={<Home />} />
           <Route to="/home" element={<Home />} />
-          <Route path="/artworks" element={<Gallery/>}/>
+          <Route path="/gallery/:id" element={<SingleArtwork />} />
         </Routes>
       ) : (
         <Routes>

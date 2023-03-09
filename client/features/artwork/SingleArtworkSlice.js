@@ -13,18 +13,18 @@ export const fetchSingleArtworkAsync = createAsyncThunk(
   }
 );
 
-export const editArtworkAsync = createAsyncThunk(
-  "campuses/edit",
-  async ({ id, title, imageUrl, description, medium }) => {
-    const { data } = await axios.put(`/api/gallery/${id}`, {
-      title,
-      imageUrl,
-      description,
-      medium,
-    });
-    return data;
-  }
-);
+// export const editArtworkAsync = createAsyncThunk(
+//   "campuses/edit",
+//   async ({ id, title, imageUrl, description, medium }) => {
+//     const { data } = await axios.put(`/api/gallery/${id}`, {
+//       title,
+//       imageUrl,
+//       description,
+//       medium,
+//     });
+//     return data;
+//   }
+// );
 
 const initialState = {
   artwork: {},
@@ -38,9 +38,9 @@ export const singleArtworkSlice = createSlice({
     builder.addCase(fetchSingleArtworkAsync.fulfilled, (state, action) => {
       state.artwork = action.payload;
     });
-    builder.addCase(editArtworkAsync.fulfilled, (state, action) => {
-      state = action.payload;
-    });
+    // builder.addCase(editArtworkAsync.fulfilled, (state, action) => {
+    //   state = action.payload;
+    // });
   },
 });
 

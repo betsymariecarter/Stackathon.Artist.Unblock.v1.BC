@@ -1,9 +1,9 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 import axios from 'axios'
 
-export const fetchGalleryAsync = createAsyncThunk('gallery', async (medium) => {
-  const { data } = await axios.get(`/api/gallery?category=${medium.type}`)
-  return data
+export const fetchGalleryAsync = createAsyncThunk('gallery', async () => {
+  const { data } = await axios.get(`/api/gallery`)
+  return data;
 })
 
 // export const addArtworkAsync = createAsyncThunk(
@@ -30,8 +30,8 @@ export const gallerySlice = createSlice({
   reducers: {},
   extraReducers: (builder) => {
     builder.addCase(fetchGalleryAsync.fulfilled, (state, action) => {
-      return action.payload
-    })
+      return action.payload;
+    });
     // builder.addCase(addProductAsync.fulfilled, (state, action) => {
     //   state.push(action.payload)
     // })

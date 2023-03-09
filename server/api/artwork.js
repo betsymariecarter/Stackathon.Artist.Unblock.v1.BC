@@ -10,7 +10,7 @@ router.get("/", async (req, res, next) => {
     const gallery = await Artwork.findAll({
       include: {
         model: User,
-        as: 'artist',
+        as: 'user',
       },
       attributes: ["imageUrl", "title"],
     });
@@ -21,14 +21,14 @@ router.get("/", async (req, res, next) => {
 });
 
 //art full view
-router.get(":/artworkId", async (req, res, next) => {
+router.get("/:id", async (req, res, next) => {
   try {
     const artById = await Artwork.findOne({
-      where: { id: req.params.artworkId },
-      include: {
-        model: User,
-        as: "artist",
-      },
+      where: { id: req.params.id },
+      // include: {
+      //   model: User,
+      //   as: "user",
+      // },
       attributes: [`title`, `imageUrl`, `description`, `medium`],
     });
     res.json(artById);

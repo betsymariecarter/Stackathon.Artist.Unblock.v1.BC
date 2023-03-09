@@ -44,7 +44,7 @@ async function seed() {
   const gallery = await Promise.all([
     Artwork.create({
       title: 'DPS',
-      imageUrl:"/art1.png",
+      imageUrl:"art/art1.png",
       description: "A piece of Artwork.",
       medium: "Digital",
       userId: betsy.id,
@@ -52,7 +52,7 @@ async function seed() {
     }),
     Artwork.create({
       title: 'Brides',
-      imageUrl:"/art2.png",
+      imageUrl:"art/art2.png",
       description: "Inspired by a photoshoot of Shiina Ringo.",
       medium: "Digital",
       userId: aimi.id,
@@ -60,7 +60,7 @@ async function seed() {
     }),
     Artwork.create({
       title: 'Peek-A-Boo',
-      imageUrl:"/art3.png",
+      imageUrl:"art/art3.png",
       description: "Inspired by 'Peek-A-Boo' by Red Velvet.",
       medium: "Digital",
       userId: betsy.id,
@@ -68,7 +68,7 @@ async function seed() {
     }),
     Artwork.create({
       title: 'Scientist',
-      imageUrl:"/art4.png",
+      imageUrl:"art/art4.png",
       description: "Inspired by 'Scientist' by Twice.",
       medium: "Digital",
       userId: betsy.id,
@@ -76,7 +76,7 @@ async function seed() {
     }),
     Artwork.create({
       title: 'Halloween Special',
-      imageUrl:"/art5.png",
+      imageUrl:"art/art5.png",
       description: "Festive art featuring Io's character, Himeo.",
       medium: "Digital",
       userId: betsy.id,

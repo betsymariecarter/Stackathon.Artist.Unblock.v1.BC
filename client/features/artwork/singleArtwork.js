@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useParams, Link } from "react-router-dom";
 import { fetchSingleArtworkAsync, selectSingleArtwork } from "./SingleArtworkSlice";
 
-const SingleCampus = () => {
+const SingleArtwork = () => {
   const dispatch = useDispatch();
   const { artworkId } = useParams();
 
@@ -13,15 +13,20 @@ const SingleCampus = () => {
     dispatch(fetchSingleArtworkAsync(artworkId));
   }, [dispatch]);
 
-  const { id, title, imageUrl, medium, description, artist } =
+  console.log(singleArtwork)
+
+  const { id, title, imageUrl, medium, description, 
+    // userId, promptId 
+  } =
     singleArtwork.artwork;
 
+    console.log(artworkId)
   return (
-    <section id="campus">
+    <section id="singleArt">
       <div key={id}>
         <h2>{title}</h2>
         <img src={`${imageUrl}`} />
-        <p>By: {artist}</p>
+        {/* <p>By: {userId}</p> */}
         <p>Medium: {medium}</p>
         <p>Description:</p>
         <p>{description}</p>
@@ -30,4 +35,4 @@ const SingleCampus = () => {
   );
 };
 
-export default SingleCampus;
+export default SingleArtwork;

@@ -19,3 +19,17 @@ form div {
   margin: 1em;
   display: inline-block;
 }
+
+.artworkCard {
+  width: 30%;
+  background-color: magenta;
+  height: auto;
+  display: inline-block;
+  text-align: center;
+  gap: 200em;
+}
+
+img {
+  max-height: 20em;
+  width: auto;
+}

@@ -3,7 +3,7 @@ module.exports = router
 
 router.use('/users', require('./users'))
 router.use('/gallery', require('./artwork'))
-router.use('/prompt', require('./prompt'))
+router.use('/prompts', require('./prompt'))
 
 router.use((req, res, next) => {
   const error = new Error('Not Found')
