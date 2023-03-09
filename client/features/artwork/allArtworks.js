@@ -1,3 +1,5 @@
+import { useDispatch, useSelector } from "react-redux";
+import React, { useEffect, useState } from "react";
 import { fetchGalleryAsync, selectGallery } from "./AllArtworkSlice";
 
 const Gallery = () => {
@@ -16,6 +18,7 @@ const Gallery = () => {
             <div className="artworkCard">
                 <img src={`/${artwork.imageUrl}`}/>
                 <h2>{artwork.title}</h2>
+                {isLoggedIn && <button>★ Favorite</button>}
                 {/* maybe implement a favorite button? */}
             </div>))}
             </div>
