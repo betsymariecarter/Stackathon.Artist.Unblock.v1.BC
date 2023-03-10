@@ -8,11 +8,11 @@ module.exports = router;
 router.get("/", async (req, res, next) => {
   try {
     const allView = await Prompt.findAll({
-      include: {
-        model: Artwork,
-        as: 'artworks',
-      },
-      attributes: ["shortPrompt", "category"],
+      // include: {
+      //   model: Artwork,
+      //   as: 'artworks',
+      // },
+      attributes: ["id","shortPrompt", "category"],
     });
     res.json(allView);
   } catch (err) {
@@ -21,15 +21,15 @@ router.get("/", async (req, res, next) => {
 });
 
 //current prompt
-router.get(":/promptId", async (req, res, next) => {
+router.get("/:id", async (req, res, next) => {
   try {
     const promptById = await Prompt.findOne({
-      where: { id: req.params.promptId },
+      where: { id: req.params.id },
       include: {
         model: Artwork,
         as: "artworks",
       },
-      attributes: [`shortPrompt`, `category`, `expandedPrompt`],
+      attributes: [`id`, `shortPrompt`, `category`, `expandedPrompt`],
     });
     res.json(promptById);
   } catch (err) {

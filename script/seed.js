@@ -1,6 +1,6 @@
 'use strict'
 
-const {db, models: {User} } = require('../server/db')
+const {db, models: {User, Artwork, Prompt} } = require('../server/db')
 
 /**
  * seed - this function clears the database, updates tables to
@@ -12,20 +12,100 @@ async function seed() {
 
   // Creating Users
   const users = await Promise.all([
-    User.create({ username: 'cody', password: '123' }),
-    User.create({ username: 'murphy', password: '123' }),
+    User.create({ username: 'betsy', password: '123' }),
+    User.create({ username: 'aimi', password: '123' }),
+  ])
+
+  const betsy = users[0]
+  const aimi = users[1];
+
+  const prompts = await Promise.all([
+    Prompt.create({
+      shortPrompt: 'Draw your character as a Vampire.',
+      category:"doodle",
+      expandedPrompt: "What it says on the tin. There's sparkly romance novel types, spooky Halloween types, legitimately scary vampires, etc.",
+    }),
+    Prompt.create({
+      shortPrompt: 'Make a drawing based on a song.',
+      category:"creative",
+      expandedPrompt: "Put on a song you love and draw a piece based on it. BONUS: include the title of the song in your description!",
+    }),
+    Prompt.create({
+      shortPrompt: 'Create a piece utilizing perspective.',
+      category:"practice",
+      expandedPrompt: "Test your skills by putting a figure in a space, drawing a background, use foreshortening, or utilize a unique angle.",
+    }),
+  ])
+
+  const vampire = prompts[0];
+  const song = prompts[1];
+  const perspective = prompts[2];
+
+  const gallery = await Promise.all([
+    Artwork.create({
+      title: 'DPS',
+      imageUrl:"art/art1.png",
+      description: "A piece of Artwork.",
+      medium: "Digital",
+      userId: betsy.id,
+      promptId: perspective.id,
+    }),
+    Artwork.create({
+      title: 'Brides',
+      imageUrl:"art/art2.png",
+      description: "Inspired by a photoshoot of Shiina Ringo.",
+      medium: "Digital",
+      userId: aimi.id,
+      promptId: perspective.id,
+    }),
+    Artwork.create({
+      title: 'Peek-A-Boo',
+      imageUrl:"art/art3.png",
+      description: "Inspired by 'Peek-A-Boo' by Red Velvet.",
+      medium: "Digital",
+      userId: betsy.id,
+      promptId: song.id,
+    }),
+    Artwork.create({
+      title: 'Scientist',
+      imageUrl:"art/art4.png",
+      description: "Inspired by 'Scientist' by Twice.",
+      medium: "Digital",
+      userId: betsy.id,
+      promptId: song.id,
+    }),
+    Artwork.create({
+      title: 'Halloween Special',
+      imageUrl:"art/art5.png",
+      description: "Festive art featuring Io's character, Himeo.",
+      medium: "Digital",
+      userId: betsy.id,
+      promptId: vampire.id,
+    }),
   ])
 
   console.log(`seeded ${users.length} users`)
   console.log(`seeded successfully`)
   return {
     users: {
-      cody: users[0],
-      murphy: users[1]
+      betsy: users[0],
+      aimi: users[1]
+    },
+    gallery: {
+      art1: gallery[0],
+      art2: gallery[1],
+      art3: gallery[2],
+      art4: gallery[3],
+      art5: gallery[4],
+    },
+    prompts: {
+      vampire: prompts[0],
+      song: prompts[1],
+      perspective: prompts[2],
     }
   }
 }
-
+  
 /*
  We've separated the `seed` function from the `runSeed` function.
  This way we can isolate the error handling and exit trapping.

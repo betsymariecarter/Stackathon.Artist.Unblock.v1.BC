@@ -10,9 +10,9 @@ router.get("/", async (req, res, next) => {
     const gallery = await Artwork.findAll({
       include: {
         model: User,
-        as: 'artist',
+        as: 'user',
       },
-      attributes: ["imageUrl", "title"],
+      attributes: ["id", "imageUrl", "title", "isFavorite"],
     });
     res.json(gallery);
   } catch (err) {
@@ -21,15 +21,15 @@ router.get("/", async (req, res, next) => {
 });
 
 //art full view
-router.get(":/artworkId", async (req, res, next) => {
+router.get("/:id", async (req, res, next) => {
   try {
     const artById = await Artwork.findOne({
-      where: { id: req.params.artworkId },
+      where: { id: req.params.id },
       include: {
         model: User,
-        as: "artist",
+        as: "user",
       },
-      attributes: [`title`, `imageUrl`, `description`, `medium`],
+      attributes: [`id`,`title`, `imageUrl`, `description`, `medium`],
     });
     res.json(artById);
   } catch (err) {
