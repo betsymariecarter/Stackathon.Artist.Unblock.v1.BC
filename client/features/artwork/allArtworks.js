@@ -26,12 +26,12 @@ const Gallery = () => {
       <h1>Gallery</h1>
       {gallery.map((artwork) => (
         <div className="artworkCard" key={artwork.id}>
-          <img src={`/${artwork.imageUrl}`} />
+          <img src={`${artwork.imageUrl}`} />
           {console.log(artwork)}
           <Link to={`/gallery/${artwork.id}`}>
             <h2>{artwork.title}</h2>
           </Link>
-          <h3>{artwork.user.username}</h3>
+          {/* <h3>{artwork.user.username}</h3> */}
           {isLoggedIn && (
             <button onClick={(favorite) => setFavorite(!favorite)}>
               ★ Favorite

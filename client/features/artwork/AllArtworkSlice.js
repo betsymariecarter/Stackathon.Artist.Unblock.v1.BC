@@ -8,12 +8,15 @@ export const fetchGalleryAsync = createAsyncThunk('gallery', async () => {
 
 export const uploadArtworkAsync = createAsyncThunk(
   'gallery/upload',
-  async ({ imageUrl, title, description, medium }) => {
+  async ({ imageUrl, title, description, medium, 
+    // userId 
+  }) => {
     const { data } = await axios.post('/api/gallery', {
       imageUrl,
       title,
       description,
       medium,
+      // userId,
     })
     return data
   }

@@ -1,11 +1,30 @@
 const path = require("path");
-const http = require("http");
 const express = require("express");
 const morgan = require("morgan");
-const formidable = require("formidable");
-const { fstat } = require("fs");
+const fileUpload = require('express-fileupload');
 const app = express();
 module.exports = app;
+
+app.use(fileUpload());
+
+// app.post('/upload', function(req, res){
+//   let uploadedFile;
+//   let uploadPath;
+
+//   if(!req.files || Object.keys(req.files).length === 0){
+//     return res.status(400).send('No files were uploaded.')
+//   }
+
+//   uploadedFile = req.files.uploadedFile;
+//   uploadPath = __dirname + "..", "public/art/" + uploadedFile.name;
+  
+//   uploadedFile.mv(uploadPath, function(err){
+//     if (err)
+//       return res.status(500).send(err);
+
+//     res.send('File successfully uploaded!')
+//   })
+// })
 
 // logging middleware
 app.use(morgan("dev"));
@@ -20,52 +39,6 @@ app.use("/api", require("./api"));
 app.get("/", (req, res) =>
   res.sendFile(path.join(__dirname, "..", "public/index.html"))
 );
-
-// app.get('/', (req, res) => {
-//   res.send(`
-//   <form action="/api/upload" enctype="multipart/form-data" method="post">
-//   <div>Upload: <input type="file" name="expressFiles"/>
-//   <input type="submit" value"Upload/>
-//   </div>
-//   </form>`)
-// })
-
-// app.post('/api/upload', (req, res, next) => {
-//   const form = formidable({});
-
-//   form.parse(req, (err, fields, files) => {
-//     if (err){
-//       next(err);
-//       return;
-//     }
-//     res.json({fields, files})
-//   })
-// })
-
-http.createServer(function (req, res) {
-  if (req.url == "/fileupload") {
-    let form = new formidable.IncomingForm();
-    form.parse(req, function (err, fields, files) {
-      let tempFilePath = files.filetoupload.filepath;
-      let projectFilePath =
-        __dirname + ".." + "public" + "/art" + files.filetoupload.originalFilename;
-      fs.rename(tempFilePath, projectFilePath, function (err) {
-        if (err) throw err;
-        res.write('File has been successfully uploaded.');
-        res.end();
-      });
-    });
-  }
-  else {
-    res.writeHead(200, {'Content-Type': 'image/jpeg' || 'image/png'});
-    res.write(
-      '<form action="fileupload" method="post" enctype="multipart/form-data">'
-    );
-    res.write(`<input type="file" name="filetoupload"><br>`);
-    res.write(`<input type="submit">`)
-    res.write(`</form>`)
-  }
-});
 
 // static file-serving middleware
 app.use(express.static(path.join(__dirname, "..", "public")));

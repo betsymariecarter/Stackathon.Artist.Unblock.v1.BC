@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { uploadArtworkAsync } from "./AllArtworkSlice";
 
 const UploadArtwork = () => {
@@ -7,17 +7,19 @@ const UploadArtwork = () => {
   const [imageUrl, setImage] = useState("");
   const [medium, setMedium] = useState("");
   const [description, setDescription] = useState("");
-//   const [user, setUser] = useState("")
+  const [userId, setUser] = useState("")
+  const currentUser = useSelector((state) => state.auth.me.id);
 
   const dispatch = useDispatch();
 
   const handleSubmit = (evt) => {
     evt.preventDefault();
-    dispatch(uploadArtworkAsync({ title, imageUrl, medium, description }));
+    dispatch(uploadArtworkAsync({ title, imageUrl, medium, description, userId }));
     setTitle("");
     setImage("");
     setMedium("");
     setDescription("");
+    setUser(`${currentUser}`);
   };
 
   return (
