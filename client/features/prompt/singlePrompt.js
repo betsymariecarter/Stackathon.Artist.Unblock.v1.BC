@@ -1,25 +1,33 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams, Link } from "react-router-dom";
-import { fetchSinglePromptAsync, selectSinglePrompt } from "./SinglePromptSlice";
+import {
+  fetchSinglePromptAsync,
+  selectSinglePrompt,
+} from "./SinglePromptSlice";
 
 const SinglePrompt = () => {
   const dispatch = useDispatch();
+  const singlePrompt = useSelector(selectSinglePrompt);
   const promptId = useParams();
 
-  const singlePrompt = useSelector(selectSinglePrompt);
-
-  console.log(singlePrompt)
+  console.log(promptId.id);
 
   useEffect(() => {
     dispatch(fetchSinglePromptAsync(promptId.id));
   }, [dispatch]);
 
-  const { id, shortPrompt, category, longPrompt, 
-    // userId, promptId 
-  } = singlePrompt.prompt;
+  console.log(singlePrompt);
 
-    console.log(shortPrompt)
+  const {
+    id,
+    shortPrompt,
+    category,
+    expandedPrompt,
+    // userId, promptId
+  } = singlePrompt.singlePrompt;
+
+  console.log(shortPrompt);
 
   return (
     <section id="singlePrompt">
@@ -27,7 +35,7 @@ const SinglePrompt = () => {
         <h2>{shortPrompt}</h2>
         {/* <p>By: {userId}</p> */}
         <p>Category: {category}</p>
-        <p>{longPrompt}</p>
+        <p>{expandedPrompt}</p>
       </div>
     </section>
   );

@@ -16,6 +16,10 @@ const Artwork = db.define('artwork', {
   medium: {
     type: Sequelize.STRING,
   },
+  isFavorite: {
+    type: Sequelize.BOOLEAN,
+    defaultValue: false,
+  }
 })
 
 module.exports = Artwork

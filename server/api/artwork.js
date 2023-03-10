@@ -12,7 +12,7 @@ router.get("/", async (req, res, next) => {
         model: User,
         as: 'user',
       },
-      attributes: ["id", "imageUrl", "title"],
+      attributes: ["id", "imageUrl", "title", "isFavorite"],
     });
     res.json(gallery);
   } catch (err) {
@@ -25,10 +25,10 @@ router.get("/:id", async (req, res, next) => {
   try {
     const artById = await Artwork.findOne({
       where: { id: req.params.id },
-      // include: {
-      //   model: User,
-      //   as: "user",
-      // },
+      include: {
+        model: User,
+        as: "user",
+      },
       attributes: [`id`,`title`, `imageUrl`, `description`, `medium`],
     });
     res.json(artById);

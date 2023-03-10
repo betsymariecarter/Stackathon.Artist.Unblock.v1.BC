@@ -4,6 +4,7 @@ import axios from "axios";
 export const fetchSinglePromptAsync = createAsyncThunk(
   "singlePrompt",
   async (id) => {
+    console.log("from inside the thunk", id)
     try {
       const { data } = await axios.get(`/api/prompts/${id}`);
       console.log("data:", data)
@@ -28,25 +29,25 @@ export const fetchSinglePromptAsync = createAsyncThunk(
 // );
 
 const initialState = {
-  prompt: {},
+  singlePrompt: {},
 };
 
 export const singlePromptSlice = createSlice({
-  name: "prompt",
+  name: "singlePrompt",
   initialState,
   reducers: {},
   extraReducers: (builder) => {
     builder.addCase(fetchSinglePromptAsync.fulfilled, (state, action) => {
-      state.prompt = action.payload;
+      state.singlePrompt = action.payload;
     });
-    // builder.addCase(editArtworkAsync.fulfilled, (state, action) => {
+    // builder.addCase(editPromptAsync.fulfilled, (state, action) => {
     //   state = action.payload;
     // });
   },
 });
 
 export const selectSinglePrompt = (state) => {
-  return state.prompt;
+  return state.singlePrompt;
 };
 
 export default singlePromptSlice.reducer;

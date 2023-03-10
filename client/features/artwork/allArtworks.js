@@ -8,6 +8,12 @@ const Gallery = () => {
   const gallery = useSelector(selectGallery);
   const isLoggedIn = useSelector((state) => !!state.auth.me.id);
 
+  const [favorite, setFavorite] = useState(false);
+
+  // const favorited = async (evt) => {
+  //   await dispatch()
+  // }
+
   useEffect(() => {
     dispatch(fetchGalleryAsync(gallery));
   }, [dispatch]);
@@ -24,7 +30,8 @@ const Gallery = () => {
           <Link to={`/gallery/${artwork.id}`}>
             <h2>{artwork.title}</h2>
           </Link>
-          {isLoggedIn && <button>★ Favorite</button>}
+            <h3>{artwork.user.username}</h3>
+          {isLoggedIn && <button onClick={(favorite) => setFavorite(!favorite)}>★ Favorite</button>}
           {/* maybe implement a favorite button? */}
         </div>
       ))}
