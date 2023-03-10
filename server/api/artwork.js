@@ -37,6 +37,12 @@ router.get("/:id", async (req, res, next) => {
   }
 });
 
+// router.post("/upload", async (req, res, next) => {
+//   try {
+//     const 
+//   }
+// })
+
 /*
 Also need the following:
 - display artwork by artist

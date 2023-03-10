@@ -26,7 +26,7 @@ const SingleArtwork = () => {
     imageUrl,
     medium,
     description,
-    user,
+    // user,
     // promptId
   } = singleArtwork.artwork;
 
@@ -37,7 +37,7 @@ const SingleArtwork = () => {
       <div key={id}>
         <h2>{title}</h2>
         <img src={`${imageUrl}`} />
-        <p>By: {user}</p>
+        {/* <p>By: {user.username}</p> <- can't seem to access, causes page to crash*/}
         <p>Medium: {medium}</p>
         <p>Description:</p>
         <p>{description}</p>

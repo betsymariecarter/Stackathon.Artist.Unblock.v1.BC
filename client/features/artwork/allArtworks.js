@@ -8,17 +8,18 @@ const Gallery = () => {
   const gallery = useSelector(selectGallery);
   const isLoggedIn = useSelector((state) => !!state.auth.me.id);
 
-  const [favorite, setFavorite] = useState(false);
+  const faveStatus = gallery.isFavorite;
+  console.log(faveStatus)
 
-  // const favorited = async (evt) => {
-  //   await dispatch()
-  // }
+  // const toggleFavorite = (faveStatus) => {
+    // !faveStatus
+  // };
 
   useEffect(() => {
     dispatch(fetchGalleryAsync(gallery));
   }, [dispatch]);
 
-  console.log(gallery.id)
+  console.log(gallery.id);
 
   return (
     <div className="galleryParentDiv">
@@ -30,8 +31,12 @@ const Gallery = () => {
           <Link to={`/gallery/${artwork.id}`}>
             <h2>{artwork.title}</h2>
           </Link>
-            <h3>{artwork.user.username}</h3>
-          {isLoggedIn && <button onClick={(favorite) => setFavorite(!favorite)}>★ Favorite</button>}
+          <h3>{artwork.user.username}</h3>
+          {isLoggedIn && (
+            <button onClick={(favorite) => setFavorite(!favorite)}>
+              ★ Favorite
+            </button>
+          )}
           {/* maybe implement a favorite button? */}
         </div>
       ))}
