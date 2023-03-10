@@ -20,7 +20,7 @@ const Gallery = () => {
       {gallery.map((artwork) => (
         <div className="artworkCard" key={artwork.id}>
           <img src={`/${artwork.imageUrl}`} />
-          {console.log(artwork.id)}
+          {console.log(artwork)}
           <Link to={`/gallery/${artwork.id}`}>
             <h2>{artwork.title}</h2>
           </Link>

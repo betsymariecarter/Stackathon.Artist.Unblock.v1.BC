@@ -39,7 +39,7 @@ export const singlePromptSlice = createSlice({
     builder.addCase(fetchSinglePromptAsync.fulfilled, (state, action) => {
       state.prompt = action.payload;
     });
-    // builder.addCase(editPromptAsync.fulfilled, (state, action) => {
+    // builder.addCase(editArtworkAsync.fulfilled, (state, action) => {
     //   state = action.payload;
     // });
   },

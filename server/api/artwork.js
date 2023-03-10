@@ -12,7 +12,7 @@ router.get("/", async (req, res, next) => {
         model: User,
         as: 'user',
       },
-      attributes: ["imageUrl", "title"],
+      attributes: ["id", "imageUrl", "title"],
     });
     res.json(gallery);
   } catch (err) {
@@ -29,7 +29,7 @@ router.get("/:id", async (req, res, next) => {
       //   model: User,
       //   as: "user",
       // },
-      attributes: [`title`, `imageUrl`, `description`, `medium`],
+      attributes: [`id`,`title`, `imageUrl`, `description`, `medium`],
     });
     res.json(artById);
   } catch (err) {

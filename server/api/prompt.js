@@ -12,7 +12,7 @@ router.get("/", async (req, res, next) => {
       //   model: Artwork,
       //   as: 'artworks',
       // },
-      attributes: ["shortPrompt", "category"],
+      attributes: ["id","shortPrompt", "category"],
     });
     res.json(allView);
   } catch (err) {
