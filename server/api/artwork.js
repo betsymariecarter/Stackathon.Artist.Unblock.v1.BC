@@ -37,11 +37,14 @@ router.get("/:id", async (req, res, next) => {
   }
 });
 
-// router.post("/upload", async (req, res, next) => {
-//   try {
-//     const 
-//   }
-// })
+router.post("/", async (req, res, next) => {
+  try {
+    const newArt = await Artwork.create(req.body);
+    res.send(newArt);
+  } catch (err){
+    next(err);
+  }
+})
 
 /*
 Also need the following:

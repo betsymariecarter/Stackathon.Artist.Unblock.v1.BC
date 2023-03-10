@@ -6,18 +6,18 @@ export const fetchGalleryAsync = createAsyncThunk('gallery', async () => {
   return data;
 })
 
-// export const addArtworkAsync = createAsyncThunk(
-//   'artwork/new',
-//   async ({ imageUrl, title, description, medium }) => {
-//     const { data } = await axios.post('/api/artworks', {
-//       imageUrl,
-//       title,
-//       description,
-//       medium,
-//     })
-//     return data
-//   }
-// )
+export const uploadArtworkAsync = createAsyncThunk(
+  'gallery/upload',
+  async ({ imageUrl, title, description, medium }) => {
+    const { data } = await axios.post('/api/gallery', {
+      imageUrl,
+      title,
+      description,
+      medium,
+    })
+    return data
+  }
+)
 
 // export const deleteArtworkAsync = createAsyncThunk('artworks/deleteProduct', async (id) => {
 //   const { data } = await axios.delete(`/api/artwork/${id}`)
@@ -32,10 +32,10 @@ export const gallerySlice = createSlice({
     builder.addCase(fetchGalleryAsync.fulfilled, (state, action) => {
       return action.payload;
     });
-    // builder.addCase(addProductAsync.fulfilled, (state, action) => {
-    //   state.push(action.payload)
-    // })
-    // builder.addCase(deleteProductAsync.fulfilled, (state, action) => {
+    builder.addCase(uploadArtworkAsync.fulfilled, (state, action) => {
+      state.push(action.payload)
+    });
+    // builder.addCase(deleteArtworkAsync.fulfilled, (state, action) => {
     //   const newState = state.filter((product) => product.id !== action.payload.id)
     //   return newState
     // })

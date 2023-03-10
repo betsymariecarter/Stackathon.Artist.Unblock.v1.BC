@@ -8,6 +8,7 @@ import Gallery from "../features/artwork/allArtworks";
 import SingleArtwork from "../features/artwork/singleArtwork";
 import Prompts from "../features/prompt/allPrompts";
 import SinglePrompt from "../features/prompt/singlePrompt";
+import UploadArtwork from "../features/artwork/uploadArtwork";
 
 /**
  * COMPONENT
@@ -33,6 +34,7 @@ const AppRoutes = () => {
         <Routes>
           <Route path="/*" element={<Home />} />
           <Route to="/home" element={<Home />} />
+          <Route exact path="/upload" element={<UploadArtwork/>}/>
         </Routes>
       ) : (
         <Routes>

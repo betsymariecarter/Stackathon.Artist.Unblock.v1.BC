@@ -22,6 +22,7 @@ const Navbar = () => {
             <Link to="/home">Home</Link>
             <Link to="/gallery">Gallery</Link>
             <Link to="/prompts">Prompts</Link>
+            {/* <Link to="/gallery/upload"/>Upload</Link> */}
             <button type="button" onClick={logoutAndRedirectHome}>
               Logout
             </button>
