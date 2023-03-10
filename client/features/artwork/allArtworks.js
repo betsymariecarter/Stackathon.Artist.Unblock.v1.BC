@@ -8,12 +8,28 @@ const Gallery = () => {
   const gallery = useSelector(selectGallery);
   const isLoggedIn = useSelector((state) => !!state.auth.me.id);
 
-  const faveStatus = gallery.isFavorite;
-  console.log(faveStatus)
+  // const toggleFavorite = () => {
+  //   for (i = 0; i < gallery.length; i++) {
+  //     const faveStatus = gallery[i].isFavorite;
+  //     return !faveStatus;
+  //   }
+  // };
+
+  //use another association (i.e. user.has many artwork as favorite)
+  //update routes for a single user to include their favorites
+  //eager loading again
+  //array of artwork objects (i.e. user.favorites = array of objects)
 
   // const toggleFavorite = (faveStatus) => {
-    // !faveStatus
+  // !faveStatus
   // };
+
+  //favebutton -> redux goes to a thunk that sends a put request to the express route to update the favorites
+  //user -> inside of put route, update current user to add artwork
+  //juke -> array of songs
+
+  //front-end when button is clicked, it will dispatch the thunk
+  //accept the userId + artworkId
 
   useEffect(() => {
     dispatch(fetchGalleryAsync(gallery));
@@ -33,9 +49,7 @@ const Gallery = () => {
           </Link>
           {/* <h3>{artwork.user.username}</h3> */}
           {isLoggedIn && (
-            <button onClick={(favorite) => setFavorite(!favorite)}>
-              ★ Favorite
-            </button>
+            <button onClick={(fave) => setFave(!fave)}>★ Favorite</button>
           )}
           {/* maybe implement a favorite button? */}
         </div>

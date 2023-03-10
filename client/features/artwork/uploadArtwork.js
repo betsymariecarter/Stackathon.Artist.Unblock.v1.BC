@@ -7,8 +7,8 @@ const UploadArtwork = () => {
   const [imageUrl, setImage] = useState("");
   const [medium, setMedium] = useState("");
   const [description, setDescription] = useState("");
-  const [userId, setUser] = useState("")
-  const currentUser = useSelector((state) => state.auth.me.id);
+  const [userId, setUser] = useState(`${auth.me.id}`)
+//   const currentUser = useSelector((state) => state.auth.me.id);
 
   const dispatch = useDispatch();
 
@@ -19,7 +19,7 @@ const UploadArtwork = () => {
     setImage("");
     setMedium("");
     setDescription("");
-    setUser(`${currentUser}`);
+    setUser("");
   };
 
   return (
