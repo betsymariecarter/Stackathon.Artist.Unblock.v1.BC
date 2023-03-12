@@ -29,7 +29,7 @@ form div {
   gap: 200em;
 }
 
-img {
+img.galleryView {
   max-height: 20em;
   width: auto;
 }

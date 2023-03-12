@@ -44,7 +44,7 @@ async function seed() {
   const gallery = await Promise.all([
     Artwork.create({
       title: 'DPS',
-      imageUrl:"art/art1.png",
+      imageUrl:"https://f2.toyhou.se/file/f2-toyhou-se/images/59908907_Gr71Bf6IltuJ23R.png",
       description: "A piece of Artwork.",
       medium: "Digital",
       userId: betsy.id,
@@ -52,7 +52,7 @@ async function seed() {
     }),
     Artwork.create({
       title: 'Brides',
-      imageUrl:"art/art2.png",
+      imageUrl:"https://f2.toyhou.se/file/f2-toyhou-se/images/62306046_tgNivL4RGgvNB4R.png",
       description: "Inspired by a photoshoot of Shiina Ringo.",
       medium: "Digital",
       userId: aimi.id,
@@ -60,7 +60,7 @@ async function seed() {
     }),
     Artwork.create({
       title: 'Peek-A-Boo',
-      imageUrl:"art/art3.png",
+      imageUrl:"https://f2.toyhou.se/file/f2-toyhou-se/images/62306138_WzeVVHesgYmm1A5.png",
       description: "Inspired by 'Peek-A-Boo' by Red Velvet.",
       medium: "Digital",
       userId: betsy.id,
@@ -68,7 +68,7 @@ async function seed() {
     }),
     Artwork.create({
       title: 'Scientist',
-      imageUrl:"art/art4.png",
+      imageUrl:"https://f2.toyhou.se/file/f2-toyhou-se/images/52573119_pjuTz8TUzc8M7Im.png",
       description: "Inspired by 'Scientist' by Twice.",
       medium: "Digital",
       userId: betsy.id,
@@ -76,7 +76,7 @@ async function seed() {
     }),
     Artwork.create({
       title: 'Halloween Special',
-      imageUrl:"art/art5.png",
+      imageUrl:"https://f2.toyhou.se/file/f2-toyhou-se/images/62305228_s4NnyM8kIUJiKG3.png",
       description: "Festive art featuring Io's character, Himeo.",
       medium: "Digital",
       userId: betsy.id,

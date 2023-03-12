@@ -10,7 +10,7 @@ const Prompt = require('./models/Prompt')
 
 User.hasMany(Artwork)
 Artwork.hasOne(User)
-// Artwork.hasOne(User, {as: 'creator'})
+Artwork.hasOne(User, {as: 'creator'})
 Prompt.hasMany(Artwork)
 Artwork.hasOne(Prompt)
 User.hasMany(Prompt)

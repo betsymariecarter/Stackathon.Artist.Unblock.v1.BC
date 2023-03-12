@@ -42,14 +42,14 @@ const Gallery = () => {
       <h1>Gallery</h1>
       {gallery.map((artwork) => (
         <div className="artworkCard" key={artwork.id}>
-          <img src={`${artwork.imageUrl}`} />
+          <img className="galleryView" src={`${artwork.imageUrl}`} />
           {console.log(artwork)}
           <Link to={`/gallery/${artwork.id}`}>
             <h2>{artwork.title}</h2>
           </Link>
-          {/* <h3>{artwork.user.username}</h3> */}
+          <h3>{artwork.creator}</h3>
           {isLoggedIn && (
-            <button onClick={(fave) => setFave(!fave)}>★ Favorite</button>
+            <button>★ Favorite</button>
           )}
           {/* maybe implement a favorite button? */}
         </div>
