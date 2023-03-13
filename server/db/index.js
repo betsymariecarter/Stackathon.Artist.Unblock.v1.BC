@@ -9,12 +9,18 @@ const Prompt = require('./models/Prompt')
 //associations could go here!
 
 User.hasMany(Artwork)
-Artwork.hasOne(User)
-Artwork.hasOne(User, {as: 'creator'})
+Artwork.belongsTo(User)
 Prompt.hasMany(Artwork)
 Artwork.hasOne(Prompt)
 User.hasMany(Prompt)
-User.belongsToMany(Artwork, {through: 'Favorites'})
+
+// User.hasMany(Artwork)
+// Artwork.hasOne(User)
+// // Artwork.hasOne(User, {as: 'creator'})
+// Prompt.hasMany(Artwork)
+// Artwork.hasOne(Prompt)
+// User.hasMany(Prompt)
+// // User.belongsToMany(Artwork, {through: 'Favorites'})
 
 module.exports = {
   db,

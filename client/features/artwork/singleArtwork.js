@@ -36,7 +36,7 @@ const SingleArtwork = () => {
     <section id="singleArt">
       <div key={id}>
         <h2>{title}</h2>
-        <img src={`${imageUrl}`} />
+        <img className="singleImg" src={`${imageUrl}`} />
         {/* <p>By: {user.username}</p> <- can't seem to access, causes page to crash*/}
         <p>Medium: {medium}</p>
         <p>Description:</p>
