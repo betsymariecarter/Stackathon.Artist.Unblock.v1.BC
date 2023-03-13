@@ -19,7 +19,7 @@ const Prompts = () => {
       <h1>Prompts</h1>
       {isLoggedIn && (
         <NavLink to={`/newPrompt`}>
-          <p>Upload Your Own Prompt!</p>
+          <h2>Upload Your Own Prompt!</h2>
         </NavLink>
       )}
       {prompts.map((prompt) => (
@@ -29,7 +29,7 @@ const Prompts = () => {
               <h3>{prompt.shortPrompt}</h3>
             </NavLink>
             <p>Category: {prompt.category}</p>
-            {isLoggedIn && <button>★ Favorite</button>}
+            {/* {isLoggedIn && <button>★ Favorite</button>} */}
           </li>
           {/* maybe implement a favorite button? */}
         </ul>

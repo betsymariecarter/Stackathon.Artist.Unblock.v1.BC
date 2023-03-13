@@ -16,7 +16,7 @@ const CreatePrompt = () => {
   const handleSubmit = (evt) => {
     evt.preventDefault();
     dispatch(
-      uploadArtworkAsync({ shortPrompt, category, expandedPrompt, userId })
+      addPromptAsync({ shortPrompt, category, expandedPrompt, userId })
     );
     setShort("");
     setCategory("");
@@ -32,7 +32,7 @@ const CreatePrompt = () => {
       <input
         name="artTitle"
         value={shortPrompt}
-        onChange={(e) => setTitle(e.target.value)}
+        onChange={(e) => setShort(e.target.value)}
       />
 
       <label>Category:</label>
@@ -56,7 +56,7 @@ const CreatePrompt = () => {
         onChange={(e) => setExpanded(e.target.value)}
       />
 
-      <button className="newArtSubmit" type="submit">
+      <button className="newPromptSubmit" type="submit">
         Submit
       </button>
     </form>

@@ -53,7 +53,6 @@ const UploadArtwork = () => {
         name="artDescription"
         className="bigBox"
         value={description}
-        type="textarea"
         onChange={(e) => setDescription(e.target.value)}
       />
 
