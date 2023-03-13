@@ -24,10 +24,11 @@ const SinglePrompt = () => {
     shortPrompt,
     category,
     expandedPrompt,
+    artworks,
     // userId, promptId
   } = singlePrompt.singlePrompt;
 
-  console.log(shortPrompt);
+  console.log("Data", artworks);
 
   return (
     <section id="singlePrompt">
@@ -37,6 +38,16 @@ const SinglePrompt = () => {
         <p>Category: {category}</p>
         <p>{expandedPrompt}</p>
       </div>
+      <h2>Submissions To This Prompt:</h2>
+      {artworks?.map((artwork) => (
+        <div className="artworkCard" key={artwork?.id}>
+          <img className="galleryView" src={`${artwork?.imageUrl}`} />
+          {console.log(artwork)}
+          <Link to={`/gallery/${artwork?.id}`}>
+            <h2>{artwork?.title}</h2>
+          </Link>
+          <h3>{artwork.user?.username}</h3>
+        </div>))}
     </section>
   );
 };

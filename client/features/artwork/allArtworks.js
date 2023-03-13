@@ -47,7 +47,7 @@ const Gallery = () => {
           <Link to={`/gallery/${artwork.id}`}>
             <h2>{artwork.title}</h2>
           </Link>
-          <h3>{artwork.creator}</h3>
+          <h3>{artwork.user?.username}</h3>
           {isLoggedIn && (
             <button>★ Favorite</button>
           )}
