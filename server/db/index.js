@@ -14,6 +14,14 @@ Prompt.hasMany(Artwork)
 Artwork.hasOne(Prompt)
 User.hasMany(Prompt)
 
+// User.hasMany(Artwork)
+// Artwork.hasOne(User)
+// // Artwork.hasOne(User, {as: 'creator'})
+// Prompt.hasMany(Artwork)
+// Artwork.hasOne(Prompt)
+// User.hasMany(Prompt)
+// // User.belongsToMany(Artwork, {through: 'Favorites'})
+
 module.exports = {
   db,
   models: {

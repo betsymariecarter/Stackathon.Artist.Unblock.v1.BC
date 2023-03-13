@@ -20,9 +20,25 @@ router.get("/", async (req, res, next) => {
 });
 
 //profile view
-router.get(":/userId", async (req, res, next) => {
+router.get("/:id", async (req, res, next) => {
   try {
     const userById = await User.findOne({
+      where: { id: req.params.id},
+      include: {
+        model: Artwork,
+        as: "uploads",
+      },
+      attributes: [`id`, `username`, `avatar`, `about`, `pronouns`],
+    });
+    res.json(userById);
+  } catch (err) {
+    next(err);
+  }
+});
+
+router.put("/:id", async (req, res, next) => {
+  try {
+    const userById = await User.findByPk({
       where: { id: req.params.userId },
       include: {
         model: Artwork,

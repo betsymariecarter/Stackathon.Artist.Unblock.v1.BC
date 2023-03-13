@@ -21,10 +21,12 @@ const User = db.define('user', {
     }
   },
   pronouns: {
-    type: Sequelize.STRING, 
+    type: Sequelize.STRING,
+    defaultValue: 'Not Stated.' 
   },
   about: {
-    type: Sequelize.TEXT
+    type: Sequelize.TEXT,
+    defaultValue: ''
   },
   avatar: {
     type: Sequelize.STRING,

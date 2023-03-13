@@ -12,7 +12,7 @@ router.get("/", async (req, res, next) => {
         model: User,
         as: 'user',
       },
-      attributes: ["id", "imageUrl", "title", "isFavorite"],
+      attributes: ["id", "imageUrl", "title"],
     });
     res.json(gallery);
   } catch (err) {
@@ -36,6 +36,15 @@ router.get("/:id", async (req, res, next) => {
     next(err);
   }
 });
+
+router.post("/", async (req, res, next) => {
+  try {
+    const newArt = await Artwork.create(req.body);
+    res.send(newArt);
+  } catch (err){
+    next(err);
+  }
+})
 
 /*
 Also need the following:

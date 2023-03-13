@@ -8,6 +8,8 @@ import Gallery from "../features/artwork/allArtworks";
 import SingleArtwork from "../features/artwork/singleArtwork";
 import Prompts from "../features/prompt/allPrompts";
 import SinglePrompt from "../features/prompt/singlePrompt";
+import UploadArtwork from "../features/artwork/uploadArtwork";
+import UserProfile from "../features/user/UserProfile";
 
 /**
  * COMPONENT
@@ -28,11 +30,13 @@ const AppRoutes = () => {
         <Route path="/gallery/:id" element={<SingleArtwork />} />
         <Route path="/prompts" element={<Prompts/>}/>
         <Route path="/prompts/:id" element={<SinglePrompt/>}/>
+        <Route path="/users/:id" element={<UserProfile/>}/>
       </Routes>
       {isLoggedIn ? (
         <Routes>
           <Route path="/*" element={<Home />} />
           <Route to="/home" element={<Home />} />
+          <Route exact path="/upload" element={<UploadArtwork/>}/>
         </Routes>
       ) : (
         <Routes>

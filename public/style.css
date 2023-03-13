@@ -1,5 +1,9 @@
+* {
+  background-color: cornsilk;
+}
+
 body {
-  font-family: sans-serif;
+  font-family: "cambria";
 }
 
 a {
@@ -12,7 +16,18 @@ label {
 
 nav a {
   display: inline-block;
-  margin: 1em;
+  /* margin: 1em; */
+  background-color: cornsilk;
+  padding: 0.7em;
+  border-radius: 10px;
+  gap: 10px;
+}
+
+nav a:hover {
+  display: inline-block;
+  /* margin: 1em; */
+  background-color: yellowgreen;
+  padding: 0.7em;
 }
 
 form div {
@@ -20,16 +35,46 @@ form div {
   display: inline-block;
 }
 
+.headTxt {
+  font-family: "cambria";
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+  padding-right: 0.5em;
+  padding-left: 0.7em;
+  margin: 0.5em;
+  /* padding-top: 0.5em;
+  padding-left: 0.5em; */
+  background-color:	darkseagreen;
+  width: 7em;
+  border-radius: 20px;
+  color: whitesmoke;
+}
+
 .artworkCard {
-  width: 30%;
-  background-color: magenta;
+  width: 20%;
+  background-color: darkseagreen;
   height: auto;
   display: inline-block;
   text-align: center;
   gap: 200em;
+  padding: 1em;
+  border: solid black 1px;
+  font-family: "cambria";
+  margin: 3em;
+  border-radius: 20px;
 }
 
-img {
+img.galleryView {
   max-height: 20em;
+  width: auto;
+}
+
+#singleArt {
+  font-family: "cambria";
+  text-align: center;
+}
+
+.singleImg {
+  max-height: 60em;
   width: auto;
 }
