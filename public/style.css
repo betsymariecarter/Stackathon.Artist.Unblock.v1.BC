@@ -14,8 +14,12 @@ label {
   display: block;
 }
 
+h1 {
+  text-align: center;
+}
+
 nav a {
-  display: inline-block;
+  display: inline-flex;
   /* margin: 1em; */
   background-color: cornsilk;
   padding: 0.7em;
@@ -36,11 +40,8 @@ form div {
 }
 
 .headTxt {
-  font-family: "cambria";
-  padding-top: 0.5em;
-  padding-bottom: 0.5em;
-  padding-right: 0.5em;
-  padding-left: 0.7em;
+  /* font-family: "cursive"; */
+  padding: 0.5em;
   margin: 0.5em;
   /* padding-top: 0.5em;
   padding-left: 0.5em; */
@@ -51,16 +52,15 @@ form div {
 }
 
 .artworkCard {
-  width: 20%;
+  width: auto;
   background-color: darkseagreen;
   height: auto;
   display: inline-block;
   text-align: center;
-  gap: 200em;
-  padding: 1em;
+  padding: 2em;
   border: solid black 1px;
   font-family: "cambria";
-  margin: 3em;
+  margin: 2em;
   border-radius: 20px;
 }
 
@@ -77,4 +77,23 @@ img.galleryView {
 .singleImg {
   max-height: 60em;
   width: auto;
+}
+
+h1.profileTitleText{
+  display: inline;
+  margin: 0.5em;
+}
+
+.profileParentDiv {
+  text-align: center;
+  padding: 3em;
+}
+
+.avatarProfile {
+  height: 7em;
+  width: 7em;
+}
+
+#singlePrompt {
+  text-align: center;
 }

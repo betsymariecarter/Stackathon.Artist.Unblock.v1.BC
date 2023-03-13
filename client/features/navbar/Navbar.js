@@ -5,6 +5,7 @@ import { logout } from '../../app/store';
 
 const Navbar = () => {
   const isLoggedIn = useSelector((state) => !!state.auth.me.id);
+  const currentUser = useSelector((state) => state.auth.me.id);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const logoutAndRedirectHome = () => {
@@ -23,6 +24,7 @@ const Navbar = () => {
             <Link to="/gallery">Gallery</Link>
             <Link to="/prompts">Prompts</Link>
             <Link to="/upload">Upload</Link>
+            <Link to={`/users/${currentUser}`}>My Profile</Link>
             <button type="button" onClick={logoutAndRedirectHome}>
               Logout
             </button>

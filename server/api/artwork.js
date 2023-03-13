@@ -1,6 +1,6 @@
 const router = require("express").Router();
 const {
-  models: { Artwork, User },
+  models: { Artwork, User, Prompt },
 } = require("../db");
 module.exports = router;
 
@@ -12,6 +12,10 @@ router.get("/", async (req, res, next) => {
         model: User,
         as: 'user',
       },
+      // include: {
+      //   model: Prompt,
+      //   as: 'prompt',
+      // },
       attributes: ["id", "imageUrl", "title"],
     });
     res.json(gallery);

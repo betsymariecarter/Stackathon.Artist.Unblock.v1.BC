@@ -12,8 +12,8 @@ async function seed() {
 
   // Creating Users
   const users = await Promise.all([
-    User.create({ username: 'betsy', password: '123', pronouns: 'She/Her', email: "betsymariecarter@gmail.com", about: "An artist also learning how to code."}),
-    User.create({ username: 'aimi', password: '123', pronouns: 'She/Her, They/Them', email: "mistressAi00@gmail.com", about: "Wouldn't you like to know, weatherboy?"}),
+    User.create({ username: 'betsy', password: '123', pronouns: 'She/Her', email: "betsymariecarter@gmail.com", about: "An artist also learning how to code.", avatar: "https://cdn.discordapp.com/attachments/474659435881693184/1084640927991222382/image.png"}),
+    User.create({ username: 'aimi', password: '123', pronouns: 'She/Her, They/Them', email: "mistressAi00@gmail.com", about: "Wouldn't you like to know, weatherboy?", avatar: "https://f2.toyhou.se/file/f2-toyhou-se/characters/337068?1652599832"}),
   ])
 
   const betsy = users[0]
