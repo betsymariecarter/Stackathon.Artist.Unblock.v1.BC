@@ -48,9 +48,7 @@ const Gallery = () => {
             <h2>{artwork.title}</h2>
           </Link>
           <h3>{artwork.user?.username}</h3>
-          {isLoggedIn && (
-            <button>★ Favorite</button>
-          )}
+          {isLoggedIn && <button>★ Favorite</button>}
           {/* maybe implement a favorite button? */}
         </div>
       ))}

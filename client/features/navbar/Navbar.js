@@ -23,7 +23,12 @@ const Navbar = () => {
             <Link to="/home">Home</Link>
             <Link to="/gallery">Gallery</Link>
             <Link to="/prompts">Prompts</Link>
-            <Link to="/upload">Upload</Link>
+            {/* <select>
+              <option>Upload</option>
+              <option onClick={navigate("/uploadArt")}>Art</option>
+              <option onClick={navigate("/newPrompt")}>Prompt</option>
+            </select> */}
+            <Link to="/uploadArt">Upload Art</Link>
             <Link to={`/users/${currentUser}`}>My Profile</Link>
             <button type="button" onClick={logoutAndRedirectHome}>
               Logout

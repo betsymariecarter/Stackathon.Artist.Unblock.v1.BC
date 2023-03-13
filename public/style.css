@@ -1,5 +1,6 @@
 * {
   background-color: cornsilk;
+  font-family: "cambria";
 }
 
 body {
@@ -16,15 +17,33 @@ label {
 
 h1 {
   text-align: center;
+  padding: 0.5em;
+  margin: auto;
+  background-color:	darkseagreen;
+  width: 7em;
+  border-radius: 20px;
+  color: whitesmoke;
+}
+
+.artTitle {
+    text-align: center;
+    padding: 0.5em;
+    margin: auto;
+    background-color:	darkseagreen;
+    width: 7em;
+    border-radius: 20px;
+    color: whitesmoke;
 }
 
 nav a {
   display: inline-flex;
-  /* margin: 1em; */
-  background-color: cornsilk;
+  margin-left: 0.25em;
+  margin-right: 0.25em;
+  background-color: darkseagreen;
   padding: 0.7em;
   border-radius: 10px;
   gap: 10px;
+  color: whitesmoke
 }
 
 nav a:hover {
@@ -96,4 +115,49 @@ h1.profileTitleText{
 
 #singlePrompt {
   text-align: center;
+}
+
+.promptsParentDiv {
+  text-align: center;
+}
+
+ul.promptList {
+  list-style: none;
+}
+
+#newArt {
+  display: flex;
+  flex-flow: column wrap;
+  gap: 0.5em;
+  margin-left: 1em;
+}
+
+input, select {
+width: 50em;
+height:2em;
+background-color: darkseagreen;
+}
+
+.bigBox {
+  height: 10em;
+}
+
+.newArtSubmit {
+  width: 20.5em;
+}
+
+label {
+  font-size: 1.25em;
+  font-weight: bold;
+}
+
+#newPrompt {
+  display: flex;
+  flex-flow: column wrap;
+  gap: 0.5em;
+  margin-left: 1em;
+}
+
+.elaboration {
+  font-size: 0.75em;
 }

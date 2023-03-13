@@ -7,8 +7,10 @@ const UploadArtwork = () => {
   const [imageUrl, setImage] = useState("");
   const [medium, setMedium] = useState("");
   const [description, setDescription] = useState("");
-  const [userId, setUser] = useState(`${auth.me.id}`)
-//   const currentUser = useSelector((state) => state.auth.me.id);
+  const [userId, setUser] = useState(``);
+  const userSelect = useSelector((state) => state.auth.me.id);
+
+  // console.log("the user is:", userSelect)
 
   const dispatch = useDispatch();
 
@@ -19,7 +21,7 @@ const UploadArtwork = () => {
     setImage("");
     setMedium("");
     setDescription("");
-    setUser("");
+    setUser(`${userSelect}`);
   };
 
   return (
@@ -49,11 +51,13 @@ const UploadArtwork = () => {
       <label>Description:</label>
       <input
         name="artDescription"
+        className="bigBox"
         value={description}
+        type="textarea"
         onChange={(e) => setDescription(e.target.value)}
       />
 
-      <button type="submit">Submit</button>
+      <button className="newArtSubmit" type="submit">Submit</button>
     </form>
   );
 };

@@ -36,3 +36,12 @@ router.get("/:id", async (req, res, next) => {
     next(err);
   }
 });
+
+router.post("/", async (req, res, next) => {
+  try {
+    const newPrompt = await Prompt.create(req.body);
+    res.send(newPrompt);
+  } catch (err){
+    next(err);
+  }
+})

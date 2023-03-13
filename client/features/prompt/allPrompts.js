@@ -12,11 +12,16 @@ const Prompts = () => {
     dispatch(fetchPromptsAsync(prompts));
   }, [dispatch]);
 
-  console.log(prompts)
+  console.log(prompts);
 
   return (
     <div className="promptsParentDiv">
       <h1>Prompts</h1>
+      {isLoggedIn && (
+        <NavLink to={`/newPrompt`}>
+          <p>Upload Your Own Prompt!</p>
+        </NavLink>
+      )}
       {prompts.map((prompt) => (
         <ul className="promptList" key={prompt.id}>
           <li>

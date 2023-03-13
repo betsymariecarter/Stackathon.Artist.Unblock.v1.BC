@@ -10,6 +10,7 @@ import Prompts from "../features/prompt/allPrompts";
 import SinglePrompt from "../features/prompt/singlePrompt";
 import UploadArtwork from "../features/artwork/uploadArtwork";
 import UserProfile from "../features/user/UserProfile";
+import CreatePrompt from "../features/prompt/createPrompt";
 
 /**
  * COMPONENT
@@ -28,15 +29,16 @@ const AppRoutes = () => {
       <Routes>
         <Route path="/gallery" element={<Gallery />} />
         <Route path="/gallery/:id" element={<SingleArtwork />} />
-        <Route path="/prompts" element={<Prompts/>}/>
-        <Route path="/prompts/:id" element={<SinglePrompt/>}/>
-        <Route path="/users/:id" element={<UserProfile/>}/>
+        <Route path="/prompts" element={<Prompts />} />
+        <Route path="/prompts/:id" element={<SinglePrompt />} />
+        <Route path="/users/:id" element={<UserProfile />} />
       </Routes>
       {isLoggedIn ? (
         <Routes>
           <Route path="/*" element={<Home />} />
           <Route to="/home" element={<Home />} />
-          <Route exact path="/upload" element={<UploadArtwork/>}/>
+          <Route exact path="/uploadArt" element={<UploadArtwork />} />
+          <Route exact path="/newPrompt" element={ <CreatePrompt/>}/>
         </Routes>
       ) : (
         <Routes>

@@ -47,7 +47,8 @@ const SinglePrompt = () => {
             <h2>{artwork?.title}</h2>
           </Link>
           <h3>{artwork.user?.username}</h3>
-        </div>))}
+        </div>
+      ))}
     </section>
   );
 };
